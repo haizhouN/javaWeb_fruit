@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+    <!--这个bean标签的作用是，将来servletspath中涉及的名字对应的是fruit，那么就要FruitController这个类来处理-->
+
+    <bean id="fruitDAO" class="fruit.dao.impl.FruitDAOImpl"/>
+    <bean id="fruitService" class="fruit.biz.impl.FruitServiceImpl">
+        <property name="fruitDAO" ref="fruitDAO"/>
+    </bean>
+    <bean id="fruit" class="fruit.controllers.FruitController">
+        <property name="fruitService" ref="fruitService"/>
+    </bean>
+</beans>
